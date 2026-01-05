@@ -308,8 +308,8 @@ IRR: ${KPI.vIRR}
     const result = await callGeminiWithRetry(prompt, 2);
 
     if (result.ok) {
-      localStorage.setItem(cacheKey, result.text);
-      setAiAnalysis(result.text);
+      const txt = result.text ?? ""; localStorage.setItem(cacheKey, txt);
+      setAiAnalysis(txt);
     } else {
       // ✅ Fallback
       const fb = fallbackAnalysis({
